@@ -1,10 +1,11 @@
-import React from 'react'
+import React from "react";
+import formatCurrency from "../util";
 
 function Products(props) {
   return (
     <div>
       <ul className="products">
-        {props.products.map(product => (
+        {props.products.map((product) => (
           <li key={product._id}>
             <div className="product">
               <a href={`#${product._id}`}>
@@ -12,9 +13,7 @@ function Products(props) {
                 <p>{product.title}</p>
               </a>
               <div className="product-price">
-                <div>
-                  {product.price}
-                </div>
+                <div>{formatCurrency(product.price)}</div>
                 <button className="button primary">Add to Cart</button>
               </div>
             </div>
@@ -22,7 +21,7 @@ function Products(props) {
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default Products
+export default Products;
